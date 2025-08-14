@@ -1,0 +1,25 @@
+Alias
+Sirve para nombrar comanpos para que puedan ser invocados con un nombre más corto, sencillo o práctico
+
+sintaxis: alias nombre_alias='comando'
+ejemplo:
+alias ll='ls -la'
+alias myip="curl ifconfig.me"
+
+Puedes mostrar los alias disponibles solo tecleando alias
+Todos los alias se pierden cuando se reinicia el sistema
+Para cargar automaticamente los alias que queramos debemos añadirlos en un fichero que se carge al arrancar el sistema como ~/.bashrc
+
+Para elimnar un alias se usa unalias nombre_alias
+
+
+Sustitución de comandos
+Permite ejecutar un comando y usar su salida como argumento en otro comando, esta técnica es my útil para construir comandos complejos
+
+Hay dos formas principales de realizar la sustitución de comandos:
+-Usando comillas invertidas `comando`
+-Usando $(): $(comando)
+
+
+Variables de entorno
+Ejecutando env se puede ver todas las variables de entorno que se tienen

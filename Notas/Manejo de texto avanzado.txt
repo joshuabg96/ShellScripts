@@ -1,0 +1,33 @@
+Comando tr
+es usado para sustituir letras o conjunto de letras
+tr [letras] [sustitutos]
+Puede usar rangos
+a-z: Inluye todas las minúsculas
+
+repeticiones: [caracteres * numero]
+[a*3]: Indica la cadena aaa
+
+Editor de flujo de texto: SED
+Sintaxis:
+sed [-n] [-e'script'] [-f archivo] archivo1 archivo2
+-n: indica que se suprima la salida estandar
+-e: Indica que se ejecute el script que viene a continuacion
+-f: Indica que las ordenes se tomarán de un archivo
+-r: se utilizan expresiones regulares extendidas
+
+Sintaxis del script
+[inicio_ubicación[,fin_ubicacion]] instruccion [argumentos]
+
+Ubicacion:
+Numeros: Especificamos los numeros de linea de principio y fin
+Expresiones regulares: Son las líneas que cumplen con la expresión regular
+
+Instrucciones
+\i: Insertar linea antes de la linea Actual
+\a: Insertar línea después de la linea actual
+\c: sustituye la linea actual por la especificada a continuacion
+d: Borrar línea actual
+p: Imprimir linea actual en salida estandar
+s: Sustituir cadena en linea actual
+!: Aplicar instrucción a las lineas no seleccionadas por la condición
+q: Abandona el proceso cuando se alcanza linea especificada

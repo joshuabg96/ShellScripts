@@ -1,0 +1,101 @@
+Usuarios:
+- /etc/passwd: Fichero donde se guardan los usuarios del sistema
+- usuario:x:UID:GUI:datos_personales:directorio_home:shell
+    - usuario: Nombre del usuario
+    - x: Antes estaba la contraseña, ahora está en otro archivo
+    - UID: ID del usuario (Identificador del usuario)
+    - GID: ID del grupo (Identificador del grupo)
+    - datos_personales: Tiene datos personales, pero puede estar vacío
+    - directorio_home: Ruta absoluta de su directorio home
+    - shell: Interprete de comandos por default
+
+Agregar usuario:
+useradd [opciones] nombre_usuario: Crea un usuario con las opcioens por defecto o con las definidas por las opciones
+-d: directorio home (lo cambia pero no lo crea)
+-m: crea el directorio home
+-g: grupo principal (por nombre)
+-G: Grupo/s Secondario/s
+-s: Interprete de comandos
+-k directorio de plantilla
+
+
+Contraseñas
+- /etc/shadow: Fichero donde se guardarán las contraseñas cifradas de los usuarios y la infroamción referente
+- alumno: Contraseña Cifrada:17802:0:9999:7:::
+- alumno: Nombre de usuario
+- Contraseña Cifrada: formato $id$salt$hashed
+    - el $id indica el algoritmo de cifrado: 
+        - 1: MD5
+        - 2a o 2y: blowfish
+        - 5: Sha-256
+        - 6: Sha-512
+- Cuando fue cambiada por última vez (en dias desde 1/1/1970)
+- días que deben de trasncurrir para poder cambiar la contraseña
+- Caducidad de la contraseña
+- Cuantos días de aviso 
+- Días que pasarán desde que la clave caduca hasta que se deshabilita la cuenta
+
+
+Usuarios y Grupos
+passwd [usuario]: Cambia la contraseña de un usuario
+
+change [usuario]: muestra información o cambia la validez de las contraseñas
+change -d [usuario]: establece el día último cambio de la contraseña
+change -E [usuario]: Establece la fecha de Caducidad
+change -I [usuario]: deshabilita la cuenta después de X días de la fecha de Caducidad
+change -l [usuario]: muestra información de la cuenta
+change -m [usuario]: Número mínimo de días antes de cambiar las contraseñas
+cahnge -M [usuario]: Número máximo de días antes de cambiar las contraseñas
+change -w [usuario]: días de aviso de expiración
+
+
+/etc/group/Ficheros donde se guarda los grupos y quienes pertenecen a ellos de forma secundaria
+
+alumnos:x:1002:juan,maria
+1. Nombre de grupo
+2. Contraseña en gshadow
+3. GID
+4. Lista de nombres de usuarios separados por comas que pertenecen al grupo de forma secundaria
+
+groupadd [nombre_Grupo]: Crear un grupo nuevo
+
+/etc/skel/: Directorio por defecto cuyo contenido se copia a los nuevos directorios personales de los usuarios
+
+getent: comando para obtener información sobre usuarios, grupos, contraseñas, etc
+
+Ejemplo:
+getent passwd alumno
+
+groupdel [grupo]: Borrar un grupo
+groupmod [Grupo]: Modificar un grupo
+usermod: Modificar un usuario
+
+
+Cambiar el propietario o grupo de un sistema. chown
+chgrp [grupo] [elemento]: cambia de grupo un elemento
+chown [usuario]:[grupo] [elemento]: cambia el usuario y el grupo de uno o más elementos La opción -R hace que sea recursivo
+chown :[grupo] [elemento]: cambia el grupo de uno o más elementos
+chown [usuario]: [elemento]: cambia el usuario de uno o más elementos
+
+
+seguridad de usuarios: repaso al comando su y sudo. Comandos de supervision
+sudo: El comando sudo permite ejecutar ordenes con permisos de administrador
+
+visudo: Para gestionar los permisos que concede sudo 
+Este comando lanza el editor por defecto y al guardar comprueba la sintaxis
+
+Reglas de acceso en sudoers
+Sintaxis:
+[usuarios_grupos] [host]=(usuario:grupo) comando/s
+
+su: Comando para cabiar a otro usuario, si no agregamos parámetro cambia al usuario root
+who: Indica quien está identificado en el sistema
+w: muestra quien hay y que está ejecutando
+last: Lista los últimos accesos que ha tenido el sistema
+
+
+Permisos especiales
+setUID: el programa se ejecuta con los permisos del usuario propietario
+setGID: el programa se ejecuta con los permisos del grupo propietario
+Sticky Bit: Solo se pueden eliminar los elementos que pertenecen al mismo usuario
+

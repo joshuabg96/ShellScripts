@@ -1,0 +1,14 @@
+Redirección
+- Cuando un comando prudice unos resultados en modo texto, los envía a la salida estandar del sistema que de forma predeterminada es el monitor
+- La salida estandar se puede redirigir con el carácter ">"
+
+/dev/null <--- Es un directorio donde puedes redirigir cosas y se eliminan automaticamente
+
+Tuberías:
+Se hace que la salida de ciertos comandos sean la entrada de otros, concatenando así comandos
+Se realiza con el caracter "|"
+Recibe el nombre de tubería, ya que estable un "canal" por el que pasará el texto de un comando a otro
+Ejemplo:
+echo "Hola Mundo" | wc
+grep -w ana /etc/passwd | cut -d":" -f1 | sort
+ls -lr /etc/ | less <---  Se puede utilizar para ver comandos con salidas de texto muy grandes

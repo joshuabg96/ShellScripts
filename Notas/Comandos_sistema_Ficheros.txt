@@ -1,0 +1,32 @@
+File:
+Se utiliza para determinar el tipo de archivo.
+-b: Nos muestra la descripción del tipo del archivo
+-i Muestra el tipo Mime del archivo
+-f: Lee los nombres de los archivos desde un fichero
+
+Ln (Enlaces):
+Crea un enlace a un elemento del sistema de ficheros. sin opciones creamos in enlace duro y con -s un enlace simbólic
+
+Enlace duro: Es un puntero a la información de disco
+Enlace blando: se sustituye por la ruta del fichero original
+
+los directorios siempre se haran enlaces simbólicos
+Hay que tener cuidado con las rutas relatvias en los enlaces simbólicos
+
+Después de los permisos cuando hacers ls -l hay un número, el cual indica la cantidad de enlaces fuertes que tiene esa información
+ejemplo:
+-rw-r--r-- 4 <-- Este número indica que existen 4 archivos que están enlazados
+
+En el enlace duro, no importa cual borres, si hay uno que ha sido enlazado, se mantiene
+En el enlace blando, si borras el original, el enlace se pierde, como un acceso directo
+
+
+DU (Uso de disco):
+-h: muestra el tamaño en Kb Mb, etc.
+-s: Cauclar el tamaño del directorio en general, no de cada elemento
+
+DF (Disk free):
+Nos da infromación sobre las particiones del sistema: tamaño total, usado y libre.
+-T: Agrega la columna de tipo de fichero
+
+dfc: Hace lo mismo solo que de una manera más amigable (hay que instalarlo)

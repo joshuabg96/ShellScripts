@@ -1,0 +1,27 @@
+Sort
+Ordena las lineas de texto en los arhivos especificados o entradas estandar
+Opciones Principales:
+-r: Ordena en orden inverso
+-n: Ordena numéricamente
+-k: Ordena por columnas específicas ejemplo: sort -k 2 archivo.txt
+-t: Especifica el caracter de separación de columnas
+-u: Elimina lineas duplicadas
+
+
+Uniq:
+Elimina líneas repetidas contiguas en un archivo o entrada estandar
+-u: Muestra las líneas no duplicadas
+-c: Muestra la cantidad de repeticiones
+-i: Ignora Mayúsculas y minúsculas
+
+WC
+Se utiliza para contar líneas, palabras y bytes en archivos de texto o entradas estandar
+-l: Muestra la cantida de líneas
+-w: Muestra la cantida de palabras
+-c: Muestra la cantida de bytes
+-m: Muestra la cantida de Caracteres
+
+rev
+Invertir el orden de los caracteres en cada línea de un archivo de texto o entrada estandar
+
+

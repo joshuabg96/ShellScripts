@@ -1,0 +1,25 @@
+Gestion de paquetes .deb
+Es cuando ya tenemos un archivo .deb y no hay que descargarlo de un repositorio
+
+Se usa el comando dpkg
+-i: Instala un paquete. Necesita a ruta completa del fichero .deb a instalar
+-r: Borrar un paquete pero deja los fichero de configuracion
+-p: Borra un paquete incluyendo todos los ficheros de configuracion
+-s: Muestra información y el estado de un paquete instalado
+-I: Muestra información de un archivo .deb que no está instalado
+-l: Lista todos los paquetes que coincidan con un patrón determinado (Ya instalados)
+-L: Muestra todos los ficheros que ha instalado un paquete
+-S: Muestra los paquetes que contien ficheros que coincidan con el patrón indicado.
+
+
+Ejemplo: 
+dpkg -i htop_2.0.2-1.deb
+dpkg -r htop
+dpkg -P htop
+dpkg -s htop
+
+
+dpkg-reconfigure:
+Se utiliza para reconfigurar un paquete instalado en el sistema
+Ejemplo:
+dpkg-reconfigure htop

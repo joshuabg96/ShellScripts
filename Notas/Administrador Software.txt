@@ -1,0 +1,20 @@
+Hay 3 formas de gestionar software:
+.deb (Debian y derivadas)
+rpm (Red Hat y derivadas)
+snap (Ubuntu y otras)
+
+- Se instala software de servidores llamados REPOSITORIOS
+- Se administra con los comandos apt y dpkg
+
+- Opciones de comando apt:
+    - update: Actualiza la lista de paquetes disponible en los repositorios
+    - search: Busca paquetes disponibles en los repositorios
+    - show: Muestra información detallada sobre un paquete específico
+    - list: Lista paquetes según diferentes criterios, como los instalados, actualizables o que cumplan cierta condición
+    - install: Instala paquetes de software
+    - remove: Elmina un paquete del sistema, manteniendo los archivos de configuracion
+    - purge: Elimina un paquete del sistema junto con sus archivos de configuración
+    - edit-sources: Abre el archivo donde se gestionan las fuentes donde se descarga el software
+    - autoremove: Se usa para quitar paquetes que ya no tienen ninguna dependencia.
+
+

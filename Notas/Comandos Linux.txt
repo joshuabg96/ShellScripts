@@ -1,0 +1,224 @@
+Comandos Linux
+
+pwd: Carpeta actual
+clear: Borrar pantalla
+
+Opciones de LS
+ls: Mostrar el contenido de la carpeta actual
+ls -l: Mostrar el contenido con permisos y detalles
+ls -lh: Mostrar contenido y detalles en términos de KB (h = humano)
+ls -lS: Se ordena conforme al tamaño
+ls -lt: Se ordena por fecha
+ls -lr: Se ordena en reversa
+ls -lR: Muestra el contenido con detalles y muestra subcarpetas tambien
+ls -a: Muestra todos los archivos ocultos que tienen "." antes del nombre
+
+Opciones de CD
+cd [Directorio al que quieres ir]: Moverte a otro directorio
+cd ..: Ve al directorio anterior
+cd ../..: Se usa para ir dos directorios anteriores y se puede concatenar, pero se usa "/" para concatenarla
+cd /: Ir a la raíz del sistema
+cd ~: Directorio home
+cd -: Ir al directorio anterior
+
+
+Utilidades de Archivos
+mkdir [Directorio]: Hacer un folder
+mkdir -p [Directorio/Directorio]: crea toda la ruta aun cuando más de un folder no exista
+touch [Nombre_Fichero]: Crear archivos
+[Comando] > [Nombre_Fichero]: Redirige el comando hacia un fichero seleccionado, lo crea o lo sustituye
+[Comando] >> [Nombre_Fichero]: Agrega el contenido al fichero seleccionado, no borra si ya tiene algo
+mv [Actual] [Nuevo]: mover o también se puede cambiar el nombre
+rm [Nombre]: Eliminar ficheros
+rm -r [Nombre]: Borra folders que no estén vacíos 
+tree: Te muestra todo el árbol de archivos desde donde tu estas (Hay que instalarlo) puedes usar tree [Folder]
+
+Redirección:
+[Comando] > [Nombre_Fichero]: Redirige el comando hacia un fichero seleccionado, lo crea o lo sustituye
+[Comando] >> [Nombre_Fichero]: Agrega el contenido al fichero seleccionado, no borra si ya tiene algo
+[Comando] 2> [Nombre_Fichero]: Redirige los errores al fichero
+[Comando] 2>> [Nombre_Fichero]: Agrega los errores al fichero
+[Comando] &> [Nombre_Fichero]: Redirige tanto la salida del comando como los errores al fichero
+[Comando] &>> [Nombre_Fichero]: Agrerga tanto la salida del comando como los errores al fichero
+
+
+Ordenar texto:
+sort [Archivo]: Ordena en orden alfabético
+sort -t "[delimitador]" -k [#] [Archivo]: Ordena por la columna seleccionada en # usando el delimitador para las columnas
+sort -n [archivo]: Ordena tomando en cuenta que hay números completos
+sort -u [archivo]: Elimina los elementos duplicados
+sort -r [archivo]: Ordena de manera inversa
+
+Organizar duplicados
+uniq -u [archivo]: Muestra las líneas no duplicadas
+uniq -c [Archivo]: Muestra la cantidad de repeticiones
+uniq -i [Archivo]: Ignora las mayúsculas y minúsculas
+
+Contar en ficheros
+wc [Archivo]: Regresa el número de líneas, palabras y bytes
+wc -l [Archivo]: Regresa el número de líneas
+wc -w [Archivo]: Regresa el número de palabras
+wc -c [Archivo]: Regresa el número de Bytes
+wc -m [Archivo]: Regresa el número de caracteres
+
+
+Copiar Archivos/ Carpetas
+cp [Origen] [Destino]: Sirve para copiar archivos
+cp -r [Origen] [Destino]: Sirve para copiar directorios completos
+
+.: Indica a la dirección actual
+
+Comodines
+*: Indica cualquiero cosa, por ejemplo: rm *.gif <- Elimina todos los archivos que terminen en .gif
+?: Indica cualquier caracter, pero solo 1 caracter por ejemplo: c?sa, matchea casa y cosa
+[]: Indica que puede ser cualquiera de los caracteres que estén dentro de los corchetes, pueden ser rangos
+
+
+Grupos:
+id: muestra la información del usuario actual, tal como id y los grupos a los que pertenece
+su: Sirve para cambiar a permisos de administrador root se sale ejecutando exit
+su [usuario]: Cambias a otro usuario
+passwd [Usuario]: Se usa para cambiar la contraseña del usuario seleccionado, después pide la nueva contraseña
+groupadd [Nombre_Grupo]: Se usa para crear grupos, debes de estar como root para poder crearlos
+useradd [Nombre_Usuario]: Se crea un nuevo usuario, se puede agregar -m para agregarlo en Home junto con la carpeta
+adduser [Nombre_Usuario]: Se crea un nuevo usuario paso por paso, el sistema te guía
+userdel [Nombre_Usuario]: Elimina el usuario seleccionado
+groupdel [Nombre_Grupo]: Elimina el grupo seleccionado
+chgrp [grupo] [elemento]: cambia de grupo un elemento
+chown [usuario]:[grupo] [elemento]: cambia el usuario y el grupo de uno o más elementos
+chown -R [usuario]:[grupo] [elemento]: Cambia usuario y grupo de manera recursiva
+chown :[grupo] [elemento]: cambia el grupo del elemento
+chown [usuario]: [elemento]: cambia el usuario del elemento
+
+Usuarios:
+change [usuario]: muestra información o cambia la validez de las contraseñas
+change -d [usuario]: establece el día último cambio de la contraseña
+change -E [usuario]: Establece la fecha de Caducidad
+change -I [usuario]: deshabilita la cuenta después de X días de la fecha de Caducidad
+change -l [usuario]: muestra información de la cuenta
+change -m [usuario]: Número mínimo de días antes de cambiar las contraseñas
+change -M [usuario]: Número máximo de días antes de cambiar las contraseñas
+change -w [usuario]: días de aviso de expiración
+
+
+Permisos:
+chmod [u,g,o][+/- rwx] [Ruta_elemento]: Agregar/Quitar permisos a usuarios, grupos u otros ejem: chmod u+r directorio
+chmod [+/- rwx] [Ruta_elemento]: Agregar/Quitar permisos a todos ejem: chmod +x directorio
+chmod [u/g/o=rwx] [Ruta_elemento]: Sirve para modificar permisos completos ejem: chmod u=rw directorio <- Cambia los permisos de user a r y w
+chmod [#][#][#] [Ruta_elemento]: Sirve para modificar todos los permisos en uno pero con números ejemplo chmod 640 directorio
+
+Administración de Software:
+sudo apt update: Actualiza la lista de paquetes disponible en los repositorios
+apt search [Nombre_Paquete]: Busca paquetes disponibles en los repositorios
+apt show [Nombre_Paquete]: Muestra información detallada sobre un paquete específico
+apt list [Nombre_Paquete]: Lista paquetes según diferentes criterios, como los instalados, actualizables o que cumplan cierta condición, si no se agrega el nombre, lista todos los paquetes disponibles
+sudo apt install [Nombre_Paquete]: Instala paquetes de software
+sudo apt remove [Nombre_Paquete]: Elmina un paquete del sistema, manteniendo los archivos de configuracion
+sudo apt purge [Nombre_Paquete]: Elimina un paquete del sistema junto con sus archivos de configuración
+sudo apt edit-sources: Abre el archivo donde se gestionan las fuentes donde se descarga el software
+sudo apt autoremove: Se usa para quitar paquetes que ya no tienen ninguna dependencia.
+
+Mostrar texto:
+echo "[Texto]": Imprime un texto en pantalla, Se puede usar sin " ", pero es mas claro si las usamos
+echo -e "[Texto]": Interpreta los caracteres especiales despues de \
+echo -n "[Texto]": Quita el salto de linea después del texto 
+cat [Fichero]: Mostrar ficheros de texto
+cat -n [Fichero]: Mostrar ficheros de texto con numero de linea
+more [Fichero]: Una manera de mostrar ficheros de texto de textos grandes (h = ayuda, Espacio = Avanzar paginas completas, Enter = Avanzar Linea por linea, q = Salir)
+less [Fichero]: Una mejor manera de mostrar ficheros de texto grande (h = ayuda, Espacio = Avanzar paginas completas, Enter = Avanzar Linea por linea, q = Salir)
+head [Fichero]: Muestra las primeras 10 lineas de un fichero
+head -n[#] [Fichero]: Muestras las primeras # lineas de un fichero
+tail [Fichero]: Muestra las últimas 10 lineas de un fichero
+tail -n[#] [Fichero]: Muestras las últimas # lineas de un fichero
+tail -f [Fichero]: Muestra los cambios en tiempo real de un archivo
+
+Editar Texto:
+nano [Fichero]: Abre un editor de texto donde puedes editar el fichero
+
+Invertir lineas
+rev [Archivo]: Invertir las palabras de una linea por ejemplo abc -> cba
+
+Filtrar Lineas de texto:
+grep [patrón] [Archivo/Directorio]: Busca el patrón en un directorio o un archivo
+grep -i [patrón] [Archivo/Directorio]: No distingue entre mayúsuculas y minúsculas
+grep -w [patrón] [Archivo/Directorio]: El patrón debe de ser una palabra independiente
+grep -v [patrón] [Archivo/Directorio]: Muestra las lineas que no coinciden con el patrón
+grep -r [patrón] [Archivo/Directorio]: Busca en los ficheros de forma recursiva (En varios elementos y subcarpetas)
+grep -n [patrón] [Archivo/Directorio]: Indica el número de línea del patrón
+grep -l [patrón] [Archivo/Directorio]: indica el nombre del fichero donde ha encontrado la coincidencia
+grep -c [patrón] [Archivo/Directorio]: Muestra la cantidad de líneas que cumplen el patrón
+grep -B [#] [patrón] [Archivo/Directorio]: Muestra la cantidad de liíneas # antes de encontrar el patrón
+grep -A [#] [patrón] [Archivo/Directorio]: Muestra la cantidad de liíneas # después de encontrar el patrón
+grep --color [patrón] [Archivo/Directorio]: destaca el patrón en color dentro de la línea seleccionada
+cut -c [#-#] [Archivo/Directorio]: Selecciona sólo los caracteres que le indiquemos de manera vertical Usar "-" da rangos, usar "," da valores específicos
+cut -d "[caracter_delimitador]" -f[#] [Archivo/Directorio]: Crear como un arreglo con el caracter delimitador y con el -f selecciona el campo del arreglo a mostrar
+
+Buscar archivos
+locate [Palaba_Buscar]: Busca en todo el disco la palabra y cualquier coincidencia
+locate -i [Palaba_Buscar]: Busca ignorando mayúsculas y minúsculas
+locate -c [Palaba_Buscar]: Cuenta el número de coincidencias
+locate -n [Palaba_Buscar]: Limita el número de resultados
+locate -r [Palaba_Buscar]: Usa expresiones regulares 
+find [carpeta] -name "[Palabra_Buscar]": Busca recursivamente el nombre del archivo
+find [carpeta] -iname "[Palabra_Buscar]": Busca ignorando mayúsculas y minúsculas
+find [carpeta] -type [Letra] "[Palabra_Buscar]": Busca tipos de ficheros específicos (d=directorio, f=fichero, I=Enlaces, b=dispositivos de bloque, c=dispositivos de carater, p= tuberías y s=socket)
+
+
+Crear Atajos
+alias [Atajo]='[Comando_Completo]': Crea un alias para poder ejecutar comandos complejos de manera rapida
+alias: Muestra los alias que existen actualmente
+unalias [Atajo]: elimina el alias existente
+
+Variables de entorno
+env: Muestra todas las variables de entorno existentes
+printenv: Imprime las variables de entorno existentes
+
+Comprimir y descomprimir
+tar -xzf [fichero a descomprimir]: Extraer un fichero comprimido
+tar -cf [Archivo Compactado] [Archivos a Compactar]: Crea un archivo .tar compactado
+tar -cf [Archivo Comprimido] [Archivos a Comprimir]: Crea un archivo .tar.gz Comprimido, comprime más que compactar
+
+
+
+^[palabra]: Tiene que empezar con esta palabra (se usa mucho para hacer busquedas)
+[palabra]$: Termina con esta palabra (Se usa mucho para hacer busquedas)
+
+
+type [comando]: Para saber el tipo de comando que es por ejemplo "cd es una orden interna del Shell"
+
+
+sudo [comando o comandos]: Ejecutar con permisos de administrador
+
+
+
+man [comando]: Ofrece el manual de ese comando en específico (ayuda)
+
+ping [Pagina_Internet]: Se usa para probar la conexión a internet por ejemplo: ping google.com
+
+
+
+man [comando]: Manual de los comandos
+info [comando]: Información de los comandos
+locate [elemento]: Indicar la ruta de un elemento del cual estoy buscando
+[comando] -h: Ayuda rápida
+[comando] --help: Ayuda rápida
+
+whatis [comando]: muestra el uso rápido del comando
+apropos [comando]: Muestra el uso con un poco más de descripción del comando
+whereis [comando]: Devuelve la ruta donde está el comando 
+
+wget [dirección de internet con fichero]: Descargar fichero de alguna página especifica con ficheros
+
+
+
+Atajos BASH
+(Cursores): buscar en el historial de comandos
+(Tabulador):Completar la ruta
+(Tabulador x2): Regresa las rutas que machean lo que has escrito
+(Ctrl + R): Búsqueda de comandos en todo tu historial de comandos Se sale con Ctrl + C
+history: Muestra todo el historial de comandos
+![#decomando]: Ejecuta el número de comando del historial de comandos
+!!: Ejecuta el último comando se puede concatenar con otras cosas por ejemplo sudo !!
+(Ctrl + A): Mueve el cursor al inicio
+(Ctrl + E): Mueve el cursor al final
+(Ctrl + L): Limpiar la pantalla

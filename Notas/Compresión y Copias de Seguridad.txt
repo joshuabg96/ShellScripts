@@ -1,0 +1,38 @@
+tar
+Sirve para compactar varios ficheros y directorios en un solo archivo
+
+Mediante opcioens podemos compribmir el fichero resultado utilizando distintos métodos de compresion
+
+sintaxis
+tar [Opciones] [Direccion destino] [Datos a procesar]
+
+compactar: tar -cf fichero.tar /etc/ /var/
+Extraer: tar -xf fichero.tar
+
+Comprimir con gzip: tar -czf fichero.tar.gz /etc/ /var/
+Extraer: tar -xzf fichero.tar.gz
+
+Opciones más importantes:
+-c: compactar
+-x: Expandir (Extraer)
+-f: Escribe o lee de un fichero
+-z: Comprime o descomprime con gzip
+-j: Comprime o descomprime con bzip2
+-P Utiliza rutas absolutas
+-p: Preserva los permisos de los ficheros originales
+-r: Añande elementos a un fichero compactado
+-t: muestra la información que contiene un fichero tar
+
+
+
+Opciones de copias de seguridad :
+- Totales: Se copian todos los Datos
+- Diferenciales: Se copian solo los que se hayan modificado desde una fecha indicada. Se utiliza la opcion -N Segudo de la fecha
+- Incrementales: se copian solo los ficheros que se han modifiacdo desde la última copia. Se utiliza la opción -g seguidp de la ruta del fichero de registro
+
+Ejemplo Diferencial:
+tar -czf $(date +%F)-I.tar.gz peliculas/ -N 2024-06-01  <-- Va a comprimir todo lo que esté después del 2024-06-01
+
+Ejemplo Increamental:
+tar -czf copia1.tar.gz  peliculas/ -g copias.log
+

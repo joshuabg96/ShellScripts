@@ -1,0 +1,46 @@
+Primeros pasos en el intérprete de comandos BASH
+
+- Descripción del entorno Bash
+
+josueadmin@ubuntu200206:~$
+
+josueadmin: Es el usuario actual
+ubuntu200206: Donde está ejecutando
+~: Que estoy trabajando en el directorio personal
+$: Que es un usuario sin privilegios de administrador
+
+
+- Construcción de una orden: Comando, Opciones y Argumentos
+Commando Opción Argumento
+ls -l Descargas/
+
+Se pueden usar varias opciones al mismo tiempo, por ejemplo
+ls -lh Descargas/
+
+ls: Listado
+-l: Con detalles
+Descargas/: Este directorio
+
+-: Es usado como opciones con solo una letra
+--: Es usado como opciones cuando es más de una letra
+
+
+- La importancia de los espacios y las mayúsculas
+	- Es sensible a los espacios, las mayúsculas, los acentos, etc.
+
+
+- Uso de los espacios y comillas
+	- Para hacer por ejemplo una carpeta que se llame Mis apuntes, hay que hacerlo de la siguiente manera
+		- mkdir "Mis Apuntes" 
+		- mkdir 'Mis Apuntes'
+		- mkdir Mis\ Apuntes 			\ <- HAce que el siguiente carácter no sea un separador
+		- De otra manera tomará como dos argumentos diferentes y hará dos carpetas diferentes
+
+
+- Ayuda sobre comandos
+	- man [comando]
+	- info [comando]
+	- locate : Indicar la ruta de un elemento del cual estoy buscando
+	- /usr/share/doc/: Documentación de los softwares
+	- [comando] -h: Ayuda rápida
+	- [comando] --help: Ayuda rápida

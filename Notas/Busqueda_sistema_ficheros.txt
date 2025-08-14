@@ -1,0 +1,40 @@
+Locate
+Sirve para buscar en todo el disco duro un archivo. Está basado en una base de datos la cual se actualiza con "updatedb"
+
+locate [opciones] [patrón]
+-i: Ignora mayúsculas y minusculas en la busqueda
+-c: Contar el número de coincidencias encontradas
+-n: Limitar el número de resultados
+-r Usar expresiones regulares para la busqueda
+
+find
+Busca de forma recursiva en un directorio todos los ficheros que cumplan ciertas condiciones
+find [ruta] [opciones] [acción]
+
+Opciones:
+-name: Permite especficar patrones para los nombre de los ficheros a buscar.
+-iname: no hace diferencia entre mayúsculas y minúsculas
+-type <tipo>: Acota el tipo de fichero a buscar (d=directorio, f=fichero, I=Enlaces, b=dispositivos de bloque, c=dispositivos de carater, p= tuberías y s=socket)
+-size +/-<n>: Indica el tamaño máximo o mínimo de los ficheros a buscar (c=bytes, k = Kilobytes, M=megabytes, G=Gigabytes) Ejemplo: find Archivos -size +200K 
+-perm [- ó /]<modo>: Permite referise a aquellos ficheros cuyos permisos sean los expersados exactamente en modo si agregamos el - verifica que se encuentre el permiso sin importarle los demás, / indica que se incluya alguno de los permisos, aun que sea 1.
+-user [Usuario]: Especifica el usuario propietario del fichero
+-group [Grupo]: Especifica el grupo propietario del fichero
+-mmin [+/-]n: Los datos del ficheron fueron modificados por última vez hace n minutos
+-mtime [+/-]n: Los datos del ficheron fueron modificados por ultima vez hace nx24 horas
+-maxdepth [Niveles]: Describe com muchos niveles de directorios por debajo de los argumentos de la línea de ordenes
+-path: busca archivos y directorios que coincidan con un patrón específico en su ruta completa
+-regex: Busca archivos que coincidan con el patrón usando expresiones regulares
+
+Modificadores:
+-not: niega la condición que pongamos a continuación
+-o :es un Or lógico se puede cubrir las dos opciones que tiene a su izquierda y derecha
+-a :se tiene que cumplir las dos opciones, es la opción por defecto
+
+Acciones:
+-ls : Lista con detalles los elementos encontrados
+-delete: Elimina los elementos encontrados
+-exec <comandos> PErmite definir un comando a ejecutarse para cada resultado de la búsqueda para el comando el archivo encontrado se debe de poner como '{}' y para finalizar ';' para que terminen los comandos, emeplo find /etc/ -exec cp '{}' /home/copias/ ';'
+-ok <comandos> Permite ejecutar comandos después de buscar, es como exec pero pide confirmación por cada elementos
+
+
+

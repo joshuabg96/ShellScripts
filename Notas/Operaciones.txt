@@ -1,0 +1,73 @@
+Operaciones aritméticas
++ = suma
+- = resta
+* = multiplicación
+/ = División
+% = residuo
+
+Para que se ejecute la operación tendremos que ponerla sin espacios dentro de $(())
+
+Conditional Operations
+- Its objetive is to check if an expression is true or false
+- We use test command and we can use it in two ways
+    - test expression or [expression]
+        - Example:
+            - test 10 -gt 20
+            - [10 -gt 20]
+            - test 'hola' = 'holita'
+            - ['hola' = 'holita']
+- Options for numbers
+    - -eq: Equal
+    - -ge: Greater or equal than
+    - -gt: Greater than
+    - -le: Less than or equal to
+    - -lt: Less than
+    - -ne: different
+
+-If Conditional
+    - Execute one or more instrucctions of the condition is meet
+    - Sintaxis
+        - if CONDITION; then
+            commands
+          fi
+    - Example:
+        if [$v1 -gt $v2]; then
+            echo "The variable v1 is greater than v2"
+        fi
+
+Text Comparisson
+- =: Is equal
+- >: Is greater than
+- <: Is less than
+- !=: is not equal
+- -n: The lenght is different than cero
+
+Other Expressions:
+- !: True if the Expression is false
+- Expression1 -a Expression2: True if both expressions are true (and)
+- Expression1 -o Expression2: Tur if any expression is true (or)
+
+Files and directories
+-d Path: if the Path exist and it is a directory
+-e Path: If the path exist no matter what element is
+-f Path: If the path exist and it standar File
+-r Path: If the path exist and it can be read
+-w Path: If the path exist and it can be written
+-x Path: If the path exist and it is executable
+-s Path: If the path exist and its size is greater than zero
+
+Regular Expression Comparisson
+- [[string =~ regex]]
+- Example:
+    [[ $ANSWER =~ ^(s|S|si|SI|sí|SÍ)$ ]]
+
+
+Operations with a text variable 
+${#var}: Return the lenght of the string
+${var:position}: Return the string from the position to the end
+${ver:position:lenght}: Retunr from the position with the selected lenght
+${var#patron}: Delete from the start the shorter part that match with the patron
+${var##patron}: Delete from the start the largest part that match with the patron
+${var%patron}: Delete from the end the shorter part that match with the patron
+${var/patron/string}: Replace first match of the patron with string
+${var//patron/string}: Replace all the patrons with string

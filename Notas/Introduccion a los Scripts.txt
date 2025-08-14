@@ -1,0 +1,69 @@
+Que es un Shell Script:
+Un archivo de texto que contiene varios comandos para que el shell (interprete) los ejecute seguidos
+
+Que tiene que cumplir
+- Debe de contener instrucciones o estructuras que entienda el interprete
+- Debe de utilizar correctamente la sintaxis de comandos, variables y estructuras de control
+- Tiene que ser un fichero con permisos de ejecucipón
+
+Nuestro primer Script
+#!/bin/bash
+# Este escript imprime la frase HOLA MUNDO por pantalla
+echo HOLA MUNDO
+
+- La primera linea indica la ruta del intérprete, que será programa encargado de ejecutar las instrucciones del Script
+- Segunda: # comentario
+- Echo HOLA MUNDO : Imprime el texto hola MUNDO
+- Suele ser un archivo .sh
+
+
+Parametros
+- Un script puede recibir información mediante parámetros, que serán cadenas de texto que pondremos después del nombre del script
+- Dentro del script podemos acceder a ellos mediante variables predefinidas del sistema
+    - $n => la información de un parámetro en concreto, siendo n un número del parámetro
+    - $* => Todos los parámetros. se presentan en una sola cadena de caracteres
+    - $@ => Todos los parametros. es una lista con un elemento por cada parámetro
+    - $# => el número de parámetros con los que se ha invocado el script. sera una cifra
+
+Lectura y Escritura de variables
+- Sirven para guardar información y poder acceder a ella posteriormente
+- Utilizaremos un identificador que estará compuesto por caracteres alfanumericos, no puede empezar por numero
+
+Lectura/Escritura
+- PAra guardar datos en una variable tendremos que asignarle un valor utilizando su identificador sin el simbolo del dolar
+variable="Hola" - Es important que todo esté juntos, sin espacios
+- Para acceder a su contenido usaremos el símbolo de dolar seguido de su identificador
+    - echo $variable 
+    - echo ${variable}
+
+
+Variables de sistema
+- Disponemos de algunas variables pero que contienen otro tipo de información
+    - $0 => Nombre del script
+    - $$ => PID del proceso que se le ha asignado al script en ejecución
+    - $? => Resultado devuelto por el ultimo proceso ejecutado
+
+- Variables de entorno
+    - Son variables que están definidas en el sistema y que podemos usar si necesitamos
+    - Son usadas por el propio sistema para su funcionamiento por ejemplo $PATH
+    - Podemos ver las variables disponibles en el comando printenv
+
+Arreglos
+- Se define de la siguiente manera
+    - miarray=(dato1 dato2 dato3)
+- Se lee de la siguiente manera
+    - ${miarray[indice]}
+        - Se pueden usar indices negativos para ir del último hacia el primero
+    - Mostrar todos los elementos
+        - ${miarray[*]} ó ${miarray[@]}
+    - Mostrar la cantidad de elementos
+        - ${#miarray[@]}
+    - Mostrar todos los indices
+        -${!miarray[@]}
+    - Eliminar indice
+        - inset miarray[indice]
+
+
+Leer información con READ
+
+

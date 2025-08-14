@@ -1,0 +1,71 @@
+Usuarios y Grupos
+
+Permisos
+----------
+1) Tipo de elemento
+	-: Fichero normal
+	d: Directorio
+	l: Enlace (Link)
+2-4) Usuario Propietario de ese elemento
+	2: Read (r)
+	3: Write (w)
+	4: Execute (x)
+	-: No tiene el permiso
+5-7) Grupo Propietario de ese fichero
+	5: Read (r)
+	6: Write (w)
+	7: Execute (x)
+	-: No tiene el permiso
+8-10) Otros Usuarios, el resto del sistema
+	8: Read (r)
+	9: Write (w)
+	10: Execute (x)
+	-: No tiene el permiso
+
+
+
+Significado de las letras
+Ficheros:
+	r: Leer
+	w: Escribir
+	x: Ejecutar
+Directorios:
+	r: Listar
+	w: Modificar
+	x: Acceder
+
+
+Modificar permisos (chmod)
+u: Se usa para modificar los permisos de Usuario (posición 2-4)
+g: Se usa para modificar los permisos de Grupo (Posición 5-7)
+o: Se usa para modificar los permisos de Otros (Posición 8-10)
+a: Se usa para modificar los permisos de todos
++: Se usa para agregar permisos
+-: Se usa para quitar permisos
+
+Ejemplos:
+chmod g+w [Ruta_Elemento] <- Añadir permiso de escritura al grupo
+chmod -x [Ruta_Elemento] <- Quitar el permiso de ejecución a todos
+chmod u+w,o+w [Ruta_Elemento] <- Añadir permiso de escritura a usuarios y a otros
+chmod u-xw,g+w [Ruta_Elemento] <- Quitar el permiso de ejecución y escritura al usuario y poner el de escritura al grupo
+
+Modificar permisos con números
+R W X R W X R W X
+1 1 1 1 1 1 1 1 1
+
+por ejemeplo: 
+chmod 640 fichero 
+6 = 110
+4 = 100 
+0 = 000
+por lo tanto 
+
+R W X R W X R W X
+1 1 0 1 0 0 0 0 0
+
+Permisos configurados:
+u = R y W
+g = R
+o = Ninguno
+
+
